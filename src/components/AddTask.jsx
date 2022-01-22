@@ -9,7 +9,6 @@ export default class AddTask extends Component {
     this.initialState = {
       id: 0,
       title: '',
-      checked: false,
     };
 
     this.state = this.initialState;
@@ -22,7 +21,6 @@ export default class AddTask extends Component {
     this.setState({
       id: randomId(1000),
       title: event.target.value,
-      checked: false,
     });
   }
 

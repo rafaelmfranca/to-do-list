@@ -5,22 +5,32 @@ export default class Task extends Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      hasFinished: false,
+    };
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(event) {
+    this.setState({
+      hasFinished: event.target.checked,
+    });
   }
 
   render() {
+    const { hasFinished } = this.state;
     const {
-      data: { id, title, checked },
+      data: { id, title },
       onRemove,
-      onCheck,
     } = this.props;
 
     return (
       <div>
         <input
           type="checkbox"
-          defaultChecked={checked}
-          onChange={() => onCheck(id)}
+          onChange={this.handleClick}
+          checked={hasFinished}
         />
         {title}
         <button type="button" onClick={() => onRemove(id)}>
@@ -35,7 +45,6 @@ Task.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
-    checked: PropTypes.bool,
   }),
   onRemove: PropTypes.func,
 }.isRequired;
