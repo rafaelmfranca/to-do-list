@@ -11,6 +11,7 @@ class App extends Component {
 
     this.createTask = this.createTask.bind(this);
     this.removeTask = this.removeTask.bind(this);
+    this.checkTask = this.checkTask.bind(this);
   }
 
   createTask(newTask) {
@@ -30,6 +31,22 @@ class App extends Component {
     });
   }
 
+  checkTask(id) {
+    console.log(id);
+    const { tasks } = this.state;
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        const prevState = task.checked;
+        return { ...task, checked: !prevState };
+      }
+      return task;
+    });
+
+    this.setState({
+      tasks: updatedTasks,
+    });
+  }
+
   render() {
     const { tasks } = this.state;
     return (
@@ -37,7 +54,12 @@ class App extends Component {
         <AddTask onCreate={this.createTask} />
         <ul>
           {tasks.map((task) => (
-            <Task key={task.id} data={task} onRemove={this.removeTask} />
+            <Task
+              key={task.id}
+              data={task}
+              onRemove={this.removeTask}
+              onCheck={this.checkTask}
+            />
           ))}
         </ul>
       </>

@@ -10,13 +10,18 @@ export default class Task extends Component {
 
   render() {
     const {
-      data: { id, title },
+      data: { id, title, checked },
       onRemove,
+      onCheck,
     } = this.props;
 
     return (
       <div>
-        <input type="checkbox" />
+        <input
+          type="checkbox"
+          defaultChecked={checked}
+          onChange={() => onCheck(id)}
+        />
         {title}
         <button type="button" onClick={() => onRemove(id)}>
           X
@@ -30,6 +35,7 @@ Task.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
+    checked: PropTypes.bool,
   }),
   onRemove: PropTypes.func,
 }.isRequired;
