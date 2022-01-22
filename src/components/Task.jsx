@@ -10,14 +10,17 @@ export default class Task extends Component {
 
   render() {
     const {
-      data: { title },
+      data: { id, title },
+      onRemove,
     } = this.props;
 
     return (
       <div>
         <input type="checkbox" />
         {title}
-        <button type="button">X</button>
+        <button type="button" onClick={() => onRemove(id)}>
+          X
+        </button>
       </div>
     );
   }
@@ -25,6 +28,8 @@ export default class Task extends Component {
 
 Task.propTypes = {
   data: PropTypes.shape({
+    id: PropTypes.number,
     title: PropTypes.string,
   }),
+  onRemove: PropTypes.func,
 }.isRequired;
