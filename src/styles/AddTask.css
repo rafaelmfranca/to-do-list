@@ -9,6 +9,15 @@
   margin-bottom: 10px;
 }
 
+.input-text:focus{
+  outline: none;
+}
+
+.true {
+  text-decoration: line-through;
+  font-weight: 200;
+}
+
 .add-button {
   border: none;
   margin-left: 5px;

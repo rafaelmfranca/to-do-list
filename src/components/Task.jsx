@@ -40,8 +40,9 @@ export default class Task extends Component {
     } = this.props;
 
     return (
-      <div className="task">
+      <div className={`task ${hasFinished}`}>
         <input
+          className="input-checkbox"
           type="checkbox"
           onChange={this.handleCheckbox}
           checked={hasFinished}
