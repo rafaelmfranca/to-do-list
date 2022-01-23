@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import AddTask from './components/AddTask';
+import Header from './components/Header';
 import Task from './components/Task';
+import './styles/App.css';
 
 class App extends Component {
   constructor() {
@@ -51,17 +53,20 @@ class App extends Component {
     const { tasks } = this.state;
     return (
       <>
-        <AddTask onCreate={this.createTask} />
-        <ul>
-          {tasks.map((task) => (
-            <Task
-              key={task.id}
-              data={task}
-              onUpdate={this.updateTask}
-              onRemove={this.removeTask}
-            />
-          ))}
-        </ul>
+        <Header />
+        <section className="container">
+          <AddTask onCreate={this.createTask} />
+          <section className="task-list">
+            {tasks.map((task) => (
+              <Task
+                key={task.id}
+                data={task}
+                onUpdate={this.updateTask}
+                onRemove={this.removeTask}
+              />
+            ))}
+          </section>
+        </section>
       </>
     );
   }
