@@ -1,0 +1,29 @@
+.task {
+  margin: 0 auto;
+  width: 80%;
+  height: 40px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+
+.task:hover {
+  cursor: pointer;
+  box-shadow: rgb(0 0 0 / 16%) 0px 1px 3px;
+}
+
+.remove-button {
+  border: none;
+}
+
+.remove-button:hover {
+  cursor: pointer;
+}
+
+.red {
+  color: gray;
+}
+
+.red:hover {
+  color: #ff6188;
+}
