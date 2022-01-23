@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../styles/Task.css';
 
 export default class Task extends Component {
   constructor(props) {
@@ -39,15 +40,19 @@ export default class Task extends Component {
     } = this.props;
 
     return (
-      <div>
+      <div className="task">
         <input
           type="checkbox"
           onChange={this.handleCheckbox}
           checked={hasFinished}
         />
         {title}
-        <button type="button" onClick={() => onRemove(id)}>
-          X
+        <button
+          className="remove-button"
+          type="button"
+          onClick={() => onRemove(id)}
+        >
+          <i className="fas fa-times-circle fa-lg red" />
         </button>
       </div>
     );

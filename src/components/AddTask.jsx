@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import generators from '../lib/generators';
+import '../styles/AddTask.css';
 
 export default class AddTask extends Component {
   constructor() {
@@ -42,8 +43,16 @@ export default class AddTask extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" value={title} onChange={this.handleInput} />
-        <button type="submit">Add Task</button>
+        <input
+          className="input-text"
+          type="text"
+          value={title}
+          onChange={this.handleInput}
+          placeholder="Enter a task"
+        />
+        <button className="add-button" type="submit">
+          Add Task
+        </button>
       </form>
     );
   }
