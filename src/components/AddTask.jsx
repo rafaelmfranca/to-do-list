@@ -9,6 +9,7 @@ export default class AddTask extends Component {
     this.initialState = {
       id: 0,
       title: '',
+      hasFinished: false,
     };
 
     this.state = this.initialState;

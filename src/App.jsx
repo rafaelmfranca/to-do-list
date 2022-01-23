@@ -11,6 +11,7 @@ class App extends Component {
 
     this.createTask = this.createTask.bind(this);
     this.removeTask = this.removeTask.bind(this);
+    this.updateTask = this.updateTask.bind(this);
   }
 
   createTask(newTask) {
@@ -18,6 +19,22 @@ class App extends Component {
 
     this.setState({
       tasks: [...tasks, newTask],
+    });
+  }
+
+  updateTask(updatedTask) {
+    const { tasks } = this.state;
+
+    const updatedTasks = tasks.map((task) => {
+      const copyOfTask = task;
+      if (copyOfTask.id === updatedTask.id) {
+        copyOfTask.hasFinished = updatedTask.hasFinished;
+      }
+      return copyOfTask;
+    });
+
+    this.setState({
+      tasks: updatedTasks,
     });
   }
 
@@ -37,7 +54,12 @@ class App extends Component {
         <AddTask onCreate={this.createTask} />
         <ul>
           {tasks.map((task) => (
-            <Task key={task.id} data={task} onRemove={this.removeTask} />
+            <Task
+              key={task.id}
+              data={task}
+              onUpdate={this.updateTask}
+              onRemove={this.removeTask}
+            />
           ))}
         </ul>
       </>

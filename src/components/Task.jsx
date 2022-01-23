@@ -2,18 +2,31 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class Task extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    const {
+      data: { id: taskId },
+    } = this.props;
 
     this.state = {
+      id: taskId,
       hasFinished: false,
     };
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleCheckbox = this.handleCheckbox.bind(this);
   }
 
-  handleClick(event) {
+  handleCheckbox(event) {
+    const { onUpdate } = this.props;
+    const currentState = this.state;
+
     this.setState({
+      hasFinished: event.target.checked,
+    });
+
+    onUpdate({
+      ...currentState,
       hasFinished: event.target.checked,
     });
   }
@@ -29,7 +42,7 @@ export default class Task extends Component {
       <div>
         <input
           type="checkbox"
-          onChange={this.handleClick}
+          onChange={this.handleCheckbox}
           checked={hasFinished}
         />
         {title}
