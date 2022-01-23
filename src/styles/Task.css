@@ -11,10 +11,6 @@
   justify-content: space-between;
 }
 
-.input-checkbox{
- display: inline-block;
-  order: -1;
-}
 .task:hover {
   cursor: pointer;
   box-shadow: rgb(0 0 0 / 16%) 0px 1px 3px;

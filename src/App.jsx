@@ -22,9 +22,12 @@ class App extends Component {
 
   loadTasksFromLocalStorage() {
     const localStorageTasks = JSON.parse(localStorage.getItem('tasks'));
-    this.setState({
-      tasks: localStorageTasks,
-    });
+
+    if (localStorageTasks) {
+      this.setState({
+        tasks: localStorageTasks,
+      });
+    }
   }
 
   createTask(newTask) {
@@ -50,6 +53,8 @@ class App extends Component {
     this.setState({
       tasks: updatedTasks,
     });
+
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   }
 
   removeTask(id) {
@@ -76,6 +81,7 @@ class App extends Component {
                 data={task}
                 onUpdate={this.updateTask}
                 onRemove={this.removeTask}
+                hasFinished={task.hasFinished}
               />
             ))}
           </section>
