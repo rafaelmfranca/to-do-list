@@ -18,10 +18,11 @@ class App extends Component {
 
   createTask(newTask) {
     const { tasks } = this.state;
-
+    const updateTask = [...tasks, newTask];
     this.setState({
-      tasks: [...tasks, newTask],
+      tasks: updateTask,
     });
+    localStorage.setItem('tasks', JSON.stringify(updateTask));
   }
 
   updateTask(updatedTask) {
@@ -47,6 +48,7 @@ class App extends Component {
     this.setState({
       tasks: tasksFiltered,
     });
+    localStorage.setItem('tasks', JSON.stringify(tasksFiltered));
   }
 
   render() {
