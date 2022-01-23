@@ -1,12 +1,20 @@
 .task {
   margin: 0 auto;
+  padding: 8px;
   width: 80%;
   height: 40px;
   margin-bottom: 5px;
   border-radius: 5px;
   background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+.input-checkbox{
+ display: inline-block;
+  order: -1;
+}
 .task:hover {
   cursor: pointer;
   box-shadow: rgb(0 0 0 / 16%) 0px 1px 3px;
