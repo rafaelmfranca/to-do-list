@@ -9,8 +9,9 @@
   margin-bottom: 10px;
 }
 
-.input-text:focus{
+.input-text:focus {
   outline: none;
+  box-shadow: rgb(0 0 0 / 16%) 0px 1px 3px;
 }
 
 .true {
