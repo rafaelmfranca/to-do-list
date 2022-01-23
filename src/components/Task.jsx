@@ -53,7 +53,7 @@ export default class Task extends Component {
           type="button"
           onClick={() => onRemove(id)}
         >
-          <i className="fas fa-times-circle fa-lg red" />
+          <i className="fas fa-times-circle fa-1x red" />
         </button>
       </div>
     );

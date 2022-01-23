@@ -16,6 +16,15 @@
   box-shadow: rgb(0 0 0 / 16%) 0px 1px 3px;
 }
 
+.task-list {
+  max-height: 315px;
+  overflow-y: auto;
+}
+
+.task-list::-webkit-scrollbar {
+  display: none;
+}
+
 .remove-button {
   border: none;
 }

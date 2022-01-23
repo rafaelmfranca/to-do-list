@@ -7,6 +7,10 @@
   font-family: Nunito Sans, sans-serif;
 }
 
+body {
+  background-color: whitesmoke;
+}
+
 .container {
   text-align: center;
   padding: 10px;
