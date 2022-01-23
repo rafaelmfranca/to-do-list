@@ -33,10 +33,10 @@ export default class Task extends Component {
   }
 
   render() {
-    const { hasFinished } = this.state;
     const {
       data: { id, title },
       onRemove,
+      hasFinished,
     } = this.props;
 
     return (
@@ -65,5 +65,7 @@ Task.propTypes = {
     id: PropTypes.number,
     title: PropTypes.string,
   }),
+  onUpdate: PropTypes.func,
   onRemove: PropTypes.func,
+  hasFinished: PropTypes.bool,
 }.isRequired;
