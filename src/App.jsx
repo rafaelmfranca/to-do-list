@@ -16,6 +16,17 @@ class App extends Component {
     this.updateTask = this.updateTask.bind(this);
   }
 
+  componentDidMount() {
+    this.loadTasksFromLocalStorage();
+  }
+
+  loadTasksFromLocalStorage() {
+    const localStorageTasks = JSON.parse(localStorage.getItem('tasks'));
+    this.setState({
+      tasks: localStorageTasks,
+    });
+  }
+
   createTask(newTask) {
     const { tasks } = this.state;
     const updateTask = [...tasks, newTask];
